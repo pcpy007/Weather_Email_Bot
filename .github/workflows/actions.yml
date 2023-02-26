@@ -22,7 +22,7 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: Shanghai Weather Report (${{env.REPORT_DATE}})
+          subject: 主人-您需要的天气预报来了~~ (${{env.REPORT_DATE}})
           body: file://result.html
           to: nannan_7@foxmail.com
           from: Github Actions
