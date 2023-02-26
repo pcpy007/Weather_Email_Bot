@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout Codes'
         uses: actions/checkout@v1
       - name: 'Get Weather'
-        run: echo "WEATHER=$(curl wttr.in/Shanghai?format=\"%l:+%C+%t+%f+%w\")" >> $GITHUB_ENV
+        run: echo "WEATHER=$(curl wttr.in/Shanghai?m&format=\"%l:+%C+%t+%f+%w\")" >> $GITHUB_ENV
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
