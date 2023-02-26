@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 主人-您需要的天气预报来了~~ (${{env.REPORT_DATE}})
-          body: file://result.jpg
+          body: file://result.png
           to: nannan_7@foxmail.com
           from: Github Actions
           content_type: text/html
