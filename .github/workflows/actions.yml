@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout Codes'
         uses: actions/checkout@v1
       - name: 'Get Weather'
-        run: bash ./weather.sh
+        run: echo "WEATHER=$(curl wttr.in/Shanghai?format=\"%l:+%C+%t+%f+%w\")" >> $GITHUB_ENV
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 主人-您需要的天气预报来了~~ (${{env.REPORT_DATE}})
-          body: file://result.png
+          body: ${{env.WEATHER}}
           to: nannan_7@foxmail.com
           from: Github Actions
           content_type: text/html
